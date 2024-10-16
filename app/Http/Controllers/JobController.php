@@ -52,4 +52,15 @@ class JobController extends Controller
         return redirect('/');
 
     }
+
+    public function destroy(string $id){
+        $job = Job::findOrFail($id);
+
+        if(!$job){
+            session()->flash('failed','Job with id $id not found');
+        }
+        $job->delete();
+        session()->flash('success','Job successfully deleted!');
+        return redirect('/');
+    }
 }

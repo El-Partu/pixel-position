@@ -10,6 +10,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [JobController::class, 'index'])->name('jobs.index');
 Route::get('/jobs/create', [JobController::class, 'create'])->middleware('auth');
 Route::post('/jobs', [JobController::class, 'store']);
+Route::delete('/jobs/{job}', [JobController::class, 'destroy']);
 Route::get('/search', SearchController::class);
 Route::get('/tags/{tag:name}', TagController::class);
 

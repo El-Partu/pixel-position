@@ -8,7 +8,23 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:ital,wght@0,100..600;1,100..600&display=swap" rel="stylesheet">
     @Vite(['resources/css/app.css', 'resources/js/app.js'])
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <title>Document</title>
+    {{-- <script>
+        // JavaScript to hide the flash message after a few seconds
+        document.addEventListener('DOMContentLoaded', function() {
+            const flashMessage = document.getElementById('flash-message');
+            if (flashMessage) {
+                setTimeout(() => {
+                    flashMessage.style.transition = 'opacity 0.5s ease-out'; // Animation
+                    flashMessage.style.opacity = '0'; // Fade out
+                    setTimeout(() => {
+                        flashMessage.remove(); // Remove from DOM after fading out
+                    }, 500); // Match this with the duration of the transition
+                }, 3000); // Display for 3 seconds
+            }
+        });
+    </script> --}}
 </head>
 <body class="bg-black text-white font-Hanken-Grotesk pb-10 ">
     <div class="px-10">
@@ -45,6 +61,10 @@
             {{ $slot }}
         </main>
     </div>
+
+    @stack('js')
+  
+        
 </body>
 </html>
 
